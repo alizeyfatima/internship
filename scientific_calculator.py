@@ -184,4 +184,3 @@ while True: #keeps running till user exits
         break
     
     calculate(opt)
-    
