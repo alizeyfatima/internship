@@ -23,12 +23,27 @@ def square_root(a):
     return math.sqrt(a)
 
 #trigonometric functions
-def sine(a):
-    return math.sin(math.radians(a))
-def cosine(a):
-    return math.cos(math.radians(a))
-def tangent(a):
-    return math.tan(math.radians(a))
+def sine(a,unit):
+    if unit == "degrees":
+        return math.sin(math.radians(a))
+    elif unit == "radians":
+        return math.sin(a)
+    else:
+        return "Invalid unit. Please enter degrees or radians."
+def cosine(a,unit):
+    if unit == "degrees":
+        return math.cos(math.radians(a))
+    elif unit == "radians":
+        return math.cos(a)  
+    else:
+        return "Invalid unit. Please enter degrees or radians."
+def tangent(a,unit):
+    if unit == "degrees":
+        return math.tan(math.radians(a))
+    elif unit == "radians":
+        return math.tan(a)
+    else:
+        return "Invalid unit. Please enter degrees or radians."
 
 #log and factorial
 def logarithm(a):
@@ -57,7 +72,6 @@ def menu():
     print("11. Factorial")
     print ("12. View History")
     print ("13. Clear History")
-    print("0. Exit")
     
 def calculate(opt):
     if opt in ["1", "2", "3", "4", "5"]:
@@ -106,13 +120,31 @@ def calculate(opt):
         result = square_root(num)
         history.append(f"√{num} = {result}")
       elif opt == "7":
-        result = sine(num)
+        while True:
+            unit = input ("Enter unit (degrees/radians): ").lower() 
+            if unit == "degrees" or unit == "radians":
+                break
+            else:
+                print("Invalid unit. Please enter 'degrees' or 'radians'.")
+        result = sine(num, unit)
         history.append(f"sin({num}) = {result}")
       elif opt == "8":
-        result = cosine(num)
+        while True:
+            unit = input ("Enter unit (degrees/radians): ").lower() 
+            if unit == "degrees" or unit == "radians":
+                break
+            else:
+                print("Invalid unit. Please enter 'degrees' or 'radians'.")
+        result = cosine(num, unit)
         history.append(f"cos({num}) = {result}")
       elif opt == "9":
-        result = tangent(num)
+        while True:
+            unit = input ("Enter unit (degrees/radians): ").lower() 
+            if unit == "degrees" or unit == "radians":
+                break
+            else:
+                print("Invalid unit. Please enter 'degrees' or 'radians'.")
+        result = tangent(num, unit)
         history.append(f"tan({num}) = {result}")
       elif opt == "10":
         result = logarithm(num)
@@ -145,10 +177,10 @@ def calculate(opt):
 #main program
 while True: #keeps running till user exits
     menu()
-    opt = input("Select operation (0-13): ")
+    opt = input("Select operation (1-13) or type 'end' to exit: ")
 
-    if opt == "0":
-        print("Calculator closed.")
+    if opt.lower() == "end":
+        print("Calculator shutting down.")
         break
     
     calculate(opt)
