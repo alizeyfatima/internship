@@ -22,7 +22,7 @@ def square_root(a):
         return "Cannot calculate square root of negative number"
     return math.sqrt(a)
 
-#trignometric functions
+#trigonometric functions
 def sine(a):
     return math.sin(math.radians(a))
 def cosine(a):
@@ -41,7 +41,7 @@ def factorial(a):
     return math.factorial(int(a))
 
 def menu():
-    print("-----------------------------")
+    print("\n-----------------------------")
     print ("Scientific Calculator:")
     print("-----------------------------")
     print("1. Addition")
@@ -77,23 +77,22 @@ def calculate(opt):
       if opt == "1":
         result = add(a, b)
         history.append(f"{a} + {b} = {result}")
-        print("Result:", result)
       elif opt == "2":
         result = subtract(a, b)
         history.append(f"{a} - {b} = {result}")
-        print("Result:", result)
       elif opt == "3":
         result = multiply(a, b)
         history.append(f"{a} * {b} = {result}")
-        print("Result:", result)
-      elif opt == "4":
+      elif opt == "4":        
         result = divide(a, b)
         history.append(f"{a} / {b} = {result}")
-        print("Result:", result)
       elif opt == "5":
         result = power(a, b)
         history.append(f"{a} ^ {b} = {result}")
-        print("Result:", result)
+        
+      print("Result:", result)
+      input("\nPress Enter to return to the menu...")
+    
 
     elif opt in ["6", "7", "8", "9", "10", "11"]:
       while True:
@@ -106,39 +105,39 @@ def calculate(opt):
       if opt == "6":
         result = square_root(num)
         history.append(f"√{num} = {result}")
-        print("Result:", result)
       elif opt == "7":
         result = sine(num)
         history.append(f"sin({num}) = {result}")
-        print("Result:", result)
       elif opt == "8":
         result = cosine(num)
         history.append(f"cos({num}) = {result}")
-        print("Result:", result)
       elif opt == "9":
         result = tangent(num)
         history.append(f"tan({num}) = {result}")
-        print("Result:", result)
       elif opt == "10":
         result = logarithm(num)
         history.append(f"log({num}) = {result}")
-        print("Result:", result)
       elif opt == "11":
         result = factorial(num)
         history.append(f"{num}! = {result}")
-        print("Result:", result)
+       
+      print("Result:", result)
+      input("\nPress Enter to return to the menu...")
         
     elif opt == "12":
      if len (history) == 0:
          print("No history available.")
+         input("\nPress Enter to return to the menu...")
      else:
          print("Calculation History:")
          for item in history:
              print(item)
+         input("\nPress Enter to return to the menu...")
              
     elif opt == "13":
      history.clear()
      print("History cleared.")
+     input("\nPress Enter to return to the menu...")
        
     else:
      print("Invalid choice. Please select a valid option.")
